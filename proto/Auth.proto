@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "Token.proto";
+package auth;
+
+service AuthorizationService
+{
+  rpc LogIn(User) returns (authenticity.Token);
+  rpc LogOut(authenticity.Token) returns (google.protobuf.Empty);
+}
+
+message User {
+  string log    = 1;
+  string pass   = 2;
+}

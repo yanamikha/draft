@@ -1,0 +1,3 @@
+obj\Debug\net472/View.cs \
+obj\Debug\net472/ViewGrpc.cs: Protos/Token.proto\
+ Protos/View.proto

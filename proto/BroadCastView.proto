@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "View.proto";
+import "Token.proto";
+package BroadCastView;
+
+service BroadCastService
+{
+  rpc SubscribeMessageStream(authenticity.Token) returns (stream OptionalMessage);
+  rpc PostMessage    (Message) returns (google.protobuf.Empty);
+}
+
+message OptionalMessage {
+  oneof ResponseType {
+    Message                 Message     = 1;
+    bool                    NotAMessage = 2;
+  }
+}
+
+message Message {
+    string          VRequest    = 1;
+}

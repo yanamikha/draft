@@ -1,0 +1,5 @@
+obj\Debug\net472/BroadCastView.cs \
+obj\Debug\net472/BroadCastViewGrpc.cs: C:/Users/ivan1/.nuget/packages/grpc.tools/2.28.1/build/native/include/google/protobuf/empty.proto\
+ Protos/Token.proto\
+ Protos/View.proto\
+ Protos/BroadCastView.proto

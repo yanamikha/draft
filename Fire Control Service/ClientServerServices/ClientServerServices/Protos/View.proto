@@ -1,0 +1,155 @@
+﻿syntax = "proto3";
+import "Protos/Token.proto";
+
+package view;
+
+message VCell {
+    oneof value {
+	    string			DBNULL					= 1;
+		double			DoubleValue				= 2;
+		float			FloatValue				= 3;
+		int32			Int32Value				= 4;
+		int64			Int64Value				= 5;
+		uint32			Uint32Value				= 6;
+		uint64			Uint64Value				= 7;
+		bool			BoolValue				= 8;
+		string			StringValue				= 9;
+		bytes			BytesValue				= 10;
+		string			UUIDValue				= 11;
+		string			HintValue				= 12;
+		string			ArrayOfString			= 13;
+		DateTime		DateTimeValue			= 14;
+	}
+}
+
+enum ValueType {
+		NoneValue								= 0;
+		DoubleValue								= 1;
+		FloatValue								= 2;
+		Int32Value								= 3;
+		Int64Value								= 4;
+		Uint32Value								= 5;
+		Uint64Value								= 6;
+		BoolValue								= 7;
+		StringValue								= 8;
+		BytesValue								= 9;
+		UUIDValue								= 10;
+		HintValue								= 11;
+		ArrayOfString						    = 12;
+		DateTimeValue					        = 13;
+}
+
+message VColumnInfo {
+	string		Name							= 1;
+	string		DisplayName						= 2;
+	ValueType	ValueType						= 3;
+	HColumn		HColumns						= 4;
+	bool		IsScan							= 5;
+	bool		Unique							= 6;
+}
+
+message VRow {
+    repeated VCell	Cells						= 1;
+}
+
+message VGrid {
+	repeated VColumnInfo	Columns				= 1;
+	repeated VRow			Rows				= 2;
+}
+
+enum Statement {
+	NoneStatement								= 0;
+	Select										= 1;
+	Insert										= 2;
+	Update										= 3;
+	Delete										= 4;
+}
+
+enum Operator {
+	NoneOperator								= 0;
+	More										= 1;	
+	MoreEqual									= 2;
+	Less										= 3;
+	LessEqual									= 4;
+	Equally										= 5;
+	NotEqual									= 6;
+	Like										= 7;
+	Between										= 8;
+}
+
+enum UnitOperator {
+	NoneUnitOperator							= 0;
+	And											= 1;	
+	Or											= 2;
+}
+
+enum Type {
+	All											= 0;
+	Query										= 1;
+}
+
+message VQuery {
+  Statement					Statement			= 1;	
+  repeated string			ColumnNames			= 2;
+  Type						Type				= 3;
+  repeated VCondition		Conditions			= 4;
+  repeated UnitOperator		UnitOperators		= 5;
+  int32						Offset				= 6;
+}
+
+message VCondition {
+	string		ColumnName						= 1;
+	Operator	Operators						= 2;
+	VCell		Value							= 3;
+}
+
+message VRequest {
+  string				VName					= 1;
+  VQuery				Query					= 2;
+  authenticity.Token	Token					= 3;  
+}
+
+message VResponse {
+	string	VName								= 1;
+	VGrid	Grid								= 2;
+}
+
+message HColumn {
+	string VName								= 1;
+	string ColumnName							= 2;
+	VCell  Value								= 3;
+	string MainColumn							= 4;
+}
+
+message HRequest {
+	authenticity.Token	Token					= 1;
+	HColumn				HColumns				= 2;
+}
+
+message Hint {
+	VCell	Key									= 1;
+	VCell	Value								= 2;
+}
+
+message HResponse {
+	repeated Hint	Hints						= 1;
+}
+
+message RegisteredView {
+	string VName								= 1;
+	string DisplayName							= 2;
+}
+
+message RVResponse {
+	repeated RegisteredView RegisteredViews		= 1;
+}
+
+service ViewService {
+	rpc ViewEvent			(VRequest) returns (VResponse);
+	rpc ShowHint			(HRequest) returns (HResponse);
+	rpc GetRegisteredView	(authenticity.Token) returns (RVResponse);
+}
+
+message DateTime{
+	int64	Value								= 1;
+}

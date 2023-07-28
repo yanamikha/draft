@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fire Control Service", "Fire Control Service\Fire Control Service.csproj", "{FF795680-5DAB-4657-ABCA-927D435B1C4C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientServerServices", "ClientServerServices\ClientServerServices\ClientServerServices.csproj", "{61718334-90FF-4387-9422-AE93EE15F7FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF795680-5DAB-4657-ABCA-927D435B1C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF795680-5DAB-4657-ABCA-927D435B1C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF795680-5DAB-4657-ABCA-927D435B1C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF795680-5DAB-4657-ABCA-927D435B1C4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61718334-90FF-4387-9422-AE93EE15F7FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61718334-90FF-4387-9422-AE93EE15F7FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61718334-90FF-4387-9422-AE93EE15F7FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61718334-90FF-4387-9422-AE93EE15F7FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67319374-9D82-4CE0-ABD4-BB7BDDC70FFE}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+
+  
+
+  
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.11.4" />
+    <PackageReference Include="Grpc" Version="2.28.1" />
+    <PackageReference Include="Grpc.Tools" Version="2.28.1" PrivateAssets="All" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Protobuf Include="Protos/Token.proto" />
+    <Protobuf Include="Protos/Auth.proto" />
+    <Protobuf Include="Protos/BroadCastView.proto" />
+    <Protobuf Include="Protos/View.proto" />
+  </ItemGroup>
+  
+</Project>
